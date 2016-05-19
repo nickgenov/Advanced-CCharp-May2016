@@ -91,7 +91,33 @@ namespace LegendaryFarming
 
         private static void PrintOutput(string material, Dictionary<string, double> materials, Dictionary<string, double> junk)
         {
-            throw new NotImplementedException();
+            var legendaryItem = ReturnLegendaryItemName(material);
+
+            Console.WriteLine("{0} obtained!", legendaryItem);
+        }
+
+        private static string ReturnLegendaryItemName(string material)
+        {
+            string legendaryItem = string.Empty;
+
+            switch (material)
+            {
+                case "shards":
+                    legendaryItem = "Shadowmourne";
+                    break;
+                case "fragments":
+                    legendaryItem = "Valantyr";
+                    break;
+                case "motes":
+                    legendaryItem = "Dragonwrath";
+                    break;
+                    ;
+                default:
+                    legendaryItem = string.Empty;
+                    break;
+            }
+
+            return legendaryItem;
         }
     }
 }
