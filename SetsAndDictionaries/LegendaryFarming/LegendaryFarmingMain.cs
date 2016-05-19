@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LegendaryFarming
 {
@@ -12,11 +13,15 @@ namespace LegendaryFarming
             var materials = new Dictionary<string, double>();
             var junk = new Dictionary<string, double>();
 
+            materials["shards"] = 0;
+            materials["fragments"] = 0;
+            materials["motes"] = 0;
+
             bool wonGame = false;
 
             string input = Console.ReadLine();
 
-            while (wonGame == false)
+            while (true)
             {
                 string[] elements = input.ToLower().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -34,12 +39,18 @@ namespace LegendaryFarming
                         AddMaterials(material, quantity, materials);
                         if (CheckForWinningMaterialAmount(material, materials))
                         {
+                            materials[material] -= WinMaterialAmount;
                             PrintOutput(material, materials, junk);
 
                             wonGame = true;
                             break;
                         }
                     }
+                }
+
+                if (wonGame)
+                {
+                    break;
                 }
 
                 input = Console.ReadLine();
@@ -50,10 +61,10 @@ namespace LegendaryFarming
         {
             if (material == "shards" || material == "fragments" || material == "motes")
             {
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
 
         private static void AddJunk(string material, double quantity, Dictionary<string, double> junk)
@@ -94,6 +105,22 @@ namespace LegendaryFarming
             var legendaryItem = ReturnLegendaryItemName(material);
 
             Console.WriteLine("{0} obtained!", legendaryItem);
+
+            var sortedMaterials = materials
+                .OrderByDescending(m => m.Value)
+                .ThenBy(m => m.Key);
+
+            foreach (var sortedMaterial in sortedMaterials)
+            {
+                Console.WriteLine("{0}: {1}", sortedMaterial.Key, sortedMaterial.Value);
+            }
+
+            var sortedJunk = junk.OrderBy(j => j.Key);
+
+            foreach (var junkItem in sortedJunk)
+            {
+                Console.WriteLine("{0}: {1}", junkItem.Key, junkItem.Value);
+            }
         }
 
         private static string ReturnLegendaryItemName(string material)
@@ -106,7 +133,7 @@ namespace LegendaryFarming
                     legendaryItem = "Shadowmourne";
                     break;
                 case "fragments":
-                    legendaryItem = "Valantyr";
+                    legendaryItem = "Valanyr";
                     break;
                 case "motes":
                     legendaryItem = "Dragonwrath";

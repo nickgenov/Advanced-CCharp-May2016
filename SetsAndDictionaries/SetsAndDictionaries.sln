@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.LogsAggregator", "LogsAg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.LegendaryFarming", "LegendaryFarming\12.LegendaryFarming.csproj", "{480147CC-3940-415D-99CE-14D79207E5DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13.SrabskoUnleashed", "SrabskoUnleashed\13.SrabskoUnleashed.csproj", "{23F868E7-22BA-4762-A0C6-CCE8A30EF780}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{480147CC-3940-415D-99CE-14D79207E5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{480147CC-3940-415D-99CE-14D79207E5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{480147CC-3940-415D-99CE-14D79207E5DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23F868E7-22BA-4762-A0C6-CCE8A30EF780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F868E7-22BA-4762-A0C6-CCE8A30EF780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F868E7-22BA-4762-A0C6-CCE8A30EF780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F868E7-22BA-4762-A0C6-CCE8A30EF780}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
